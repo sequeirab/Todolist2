@@ -15,6 +15,13 @@ for(let i = 0; i < close.length; i++){
 	}
 }	
 
+const list = document.querySelector("UL")
+list.addEventListener("click", function(ev) {
+	if(ev.target.tagName === "LI"){
+		ev.target.classList.toggle("done");
+	}
+}, false);
+
 
 function newList(){
 	let createList = document.createElement("LI");
@@ -36,4 +43,11 @@ function newList(){
 	span.className = "close";
 	span.appendChild(txt);
 	createList.appendChild(span);
+
+	for(let i = 0; i < close.length; i++){
+		close[i].onclick = function () {
+			let div = this.parentElement;
+			div.style.display = "none";
+		}
+	}
 }
